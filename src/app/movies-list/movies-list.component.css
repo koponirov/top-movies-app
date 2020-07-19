@@ -1,0 +1,12 @@
+.list {
+  max-width: 1200px;
+}
+.gutter-row {
+  margin-top: 20px;
+}
+.paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+}

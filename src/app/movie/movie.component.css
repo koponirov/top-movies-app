@@ -1,0 +1,25 @@
+.movie {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  max-width: 80%;
+}
+.poster {
+
+}
+.description {
+   padding-left: 30px;
+ }
+.description h3{
+  margin-bottom: 25px;
+}
+.block {
+  display: block;
+}
