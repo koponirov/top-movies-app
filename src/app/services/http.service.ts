@@ -16,7 +16,7 @@ export class HttpService {
 
   private topMoviesUrl = 'movie/top_rated';
 
-
+  private searchUrl = 'search/movie/';
 
   getTopMovies(page: number) {
     const params = new HttpParams()
@@ -33,5 +33,20 @@ export class HttpService {
       .set('language', this.lang);
 
     return this.http.get(`${this.baseUrl}movie/${id.toString()}`, { params });
+  }
+
+  getSimilar(id) {
+    const params = new HttpParams()
+      .set('api_key', this.apiKey)
+      .set('language', this.lang);
+
+    return this.http.get(`${this.baseUrl}movie/${id.toString()}/similar`, { params });
+  }
+  search(term: string) {
+    const params = new HttpParams()
+      .set('api_key', this.apiKey)
+      .set('language', this.lang)
+      .set('query', term);
+    return this.http.get<any>(`${this.baseUrl}${this.searchUrl}`, { params });
   }
 }

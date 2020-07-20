@@ -1,8 +1,12 @@
-<div nz-row [nzGutter]="16" class="list">
+
+
+<div nz-row nzJustify="center" nzAlign="middle" [nzGutter]="16" class="list">
   <div *ngFor="let movie of movies"    >
     <app-card [movie]="movie" nz-col nzSpan="6" class="gutter-row"></app-card>
   </div>
 </div>
+
+
 <div class="paginator">
   <nz-pagination
     (nzPageIndexChange)="onPageIndexChanged($event)"

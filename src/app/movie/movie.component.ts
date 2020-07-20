@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { MovieService } from '../services/movie.service';
-import {MovieDetailed} from '../interface';
+import {Movie, MovieDetailed} from '../interface';
 
 @Component({
   selector: 'app-movie',
@@ -17,8 +17,11 @@ export class MovieComponent implements OnInit {
     private movieService: MovieService) { }
 
     movie: MovieDetailed;
+    similar: Movie[];
+    disabled: boolean;
 
   ngOnInit() {
+    this.disabled = false;
     this.getMovieDetails();
   }
 
@@ -27,5 +30,13 @@ export class MovieComponent implements OnInit {
 
     this.movieService.getMovieDetails(id)
       .subscribe(response => this.movie = response);
+    this.movieService.getSimilar(id)
+      .subscribe(response => this.similar = response.results);
+  }
+
+  addMovie(movie: MovieDetailed) {
+
+    this.movieService.addMovieToCollection(movie);
+
   }
 }

@@ -1,0 +1,26 @@
+<mat-toolbar color="basic">
+  <app-back-button></app-back-button>
+</mat-toolbar>
+
+<div *ngIf="collection.length">
+
+  <div nz-row nzJustify="center" nzAlign="middle" [nzGutter]="16" class="list">
+    <div *ngFor="let movie of collection"    >
+
+      <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate" routerLink="/description/{{movie.id}}">
+        <nz-card-meta
+          nzTitle="{{ movie.title }}"
+          nzDescription="Rating: {{ movie.vote_average }}"
+        >
+        </nz-card-meta>
+        <button (click)="deleteMovie(movie)">delete</button>
+      </nz-card>
+      <ng-template #coverTemplate class="poster">
+        <img alt="poster" src='https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}'/>
+      </ng-template>
+<!--      <app-card [movie]="movie" nz-col nzSpan="6" class="gutter-row"  ></app-card>-->
+
+    </div>
+  </div>
+</div>
+
