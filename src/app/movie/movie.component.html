@@ -11,7 +11,11 @@
     </div>
 
     <div class="description">
-      <h2 class="header">{{ movie.title }}</h2>
+      <h2 class="header">{{ movie.title }}
+        <button mat-icon-button [disabled]="disabled" color="warn" aria-label="like" (click)="addMovie(movie)">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      </h2>
       <h3> {{ movie.tagline }}</h3>
       <p><b>Rating: </b> {{ movie.vote_average }}</p>
       <p><b>Release date: </b> {{ movie.release_date | date: 'd MMMM yyyy'}}</p>
@@ -37,9 +41,6 @@
       <p><b>Overview: </b>{{ movie.overview}}</p>
 
 
-      <button mat-icon-button [disabled]="disabled" color="warn" aria-label="like" (click)="addMovie(movie)">
-        <mat-icon>favorite</mat-icon>
-      </button>
 
     </div>
 

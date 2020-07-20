@@ -1,0 +1,15 @@
+.grid-container{
+  margin: 20px auto;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 5px;
+  height: 90vh;
+}
+.card-container{
+  display: flex;
+  justify-content: center;
+}
+.card {
+  width: 240px;
+}

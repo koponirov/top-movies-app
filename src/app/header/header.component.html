@@ -1,5 +1,19 @@
 <mat-toolbar color="warn" class="bar">
-  <span routerLink="/movies">{{ 'Top Movies' | uppercase  }}</span>
-  <span routerLink="/collection">{{ 'favorites' | uppercase  }}</span>
+
+
+    <button mat-icon-button aria-label="movie icon" routerLink="/movies">
+      <mat-icon>movie</mat-icon>
+      {{ 'Top Movies' | uppercase  }}
+    </button>
+
+
+
+    <button mat-icon-button aria-label="heart icon"  routerLink="/collection">
+      <mat-icon>favorite</mat-icon>
+      {{ 'Favorites' | uppercase  }}
+    </button>
+
+
+
 </mat-toolbar>
 

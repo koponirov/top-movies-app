@@ -32,11 +32,21 @@ export class MovieComponent implements OnInit {
       .subscribe(response => this.movie = response);
     this.movieService.getSimilar(id)
       .subscribe(response => this.similar = response.results);
+    this.isIncluded(id);
   }
 
   addMovie(movie: MovieDetailed) {
-
     this.movieService.addMovieToCollection(movie);
+    this.setDisabled(true);
+  }
 
+  setDisabled(flag: boolean) {
+    this.disabled = flag;
+  }
+
+  isIncluded(id: number) {
+    if (this.movieService.getCollection().find( m => m.id === id)) {
+      this.disabled = true;
+    } else {this.disabled = false; }
   }
 }

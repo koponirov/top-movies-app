@@ -23,9 +23,7 @@ export class CollectionComponent implements OnInit {
     }
 
   deleteMovie(movie: MovieDetailed): void {
-
     this.collection = this.collection.filter( m => {
-      debugger;
       return m.id !== movie.id; });
   }
 

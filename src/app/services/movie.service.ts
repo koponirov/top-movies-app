@@ -27,12 +27,14 @@ export class MovieService {
 
   addMovieToCollection (movie: MovieDetailed) {
     this.addToCollection.emit(movie);
+    if (this.collection.find( m => m.id === movie.id)) { return; }
     this.collection.push(movie);
   }
 
   getCollection() {
     return this.collection;
   }
+
   getSearchMovies(term: string): Observable<any> {
       if (!term.trim()) {
       // if not search term, return empty hero array.
