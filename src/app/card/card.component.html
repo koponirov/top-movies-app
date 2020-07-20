@@ -1,13 +1,16 @@
-<nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate" routerLink="/description/{{movie.id}}">
-  <nz-card-meta
-    nzTitle="{{ movie.title }}"
-    nzDescription="Rating: {{ movie.vote_average }}"
+<div class="card-container">
+  <nz-card nzHoverable style="width:240px"
+           [nzCover]="coverTemplate"
+           routerLink="/description/{{movie.id}}"
+           class="card"
   >
+    <nz-card-meta
+      nzTitle="{{ movie.title }}"
+      nzDescription="Rating: {{ movie.vote_average }}"
+    ></nz-card-meta>
+  </nz-card>
+</div>
 
-  </nz-card-meta>
-
-
-</nz-card>
 <ng-template #coverTemplate class="poster">
   <img alt="poster" src='https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}'/>
 </ng-template>
